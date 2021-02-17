@@ -9,45 +9,35 @@ second = 0
 millisecond = 0
 
 function startBtn() {
-    var sCount = function() {
-        $('#second').text(second++);
-    }
-    var ids = setInterval(function(){
-        sCount();
-        if(second > 9){　
-            clearInterval(ids);
-        }
-    }, 1000);
 
-    var msCount = function() {
+    Timer = setInterval(function() {
+        
         $('#millisecond').text(millisecond++);
-    }
-    var idms = setInterval(function(){
-        msCount();
         if(millisecond > 9){
-            clearInterval(idms);
-        }},100);
-    
-    
-    var mCount = function() {
-        $('#minutes').text(minutes++);
-    }
-    var idm = setInterval(function(){
-        mCount();
-        if(minutes > 9){
-            clearInterval(idm);
-        }},10000);
-    
-        var hCount = function() {
-            $('#hours').text(hours++);
+            millisecond = 0;
+            $('#second').text(second += 1);
         }
-        var idh = setInterval(function(){
-            hCount();
-            if(hours> 9){
-                clearInterval(idh);
-            }},10000000);
-
+        if(second > 59){
+            second = 0;
+            $('#minutes').text(minutes += 1);
+        }
+        if(minutes > 59){
+            minutes = 0;
+            $('#hours').text(hours += 1);
+        }
+        
+    },100);
 }
-    
 
+function stopBtn() {
+    if (Timer) {
+      clearInterval(Timer);
+    }
+}
 
+function resetBtn() {
+    $('#millisecond').text(millisecond = 0);
+    $('#second').text(second = 0);
+    $('#minutes').text(minutes= 0);
+    $('#hours').text(hours = 0);
+}
