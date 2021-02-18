@@ -27,12 +27,19 @@ function startBtn() {
         }
         
     },100);
+
+    $('#stopWatch #start-btn').attr('disabled','disabled');
+    $('#stopWatch #stop-btn').removeAttr('disabled');
 }
+
 
 function stopBtn() {
     if (Timer) {
       clearInterval(Timer);
     }
+
+    $('#stopWatch #stop-btn').attr('disabled','disabled');
+    $('#stopWatch #reset-btn').removeAttr('disabled');
 }
 
 function resetBtn() {
@@ -40,4 +47,7 @@ function resetBtn() {
     $('#second').text(second = 0);
     $('#minutes').text(minutes= 0);
     $('#hours').text(hours = 0);
+
+    $('#stopWatch #reset-btn').attr('disabled','disabled');
+    $('#stopWatch #start-btn').removeAttr('disabled');
 }

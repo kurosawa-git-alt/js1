@@ -12,7 +12,7 @@
       <div class="main-wrap">
         <div class="main">
           <h3 class="title">ストップウォッチ</h3>
-          <div class="stop-watch">
+          <div class="stop-watch" id="stopWatch">
             <div class="count">
               <p id="hours" class="num">0</p>
               <p id="minutes" class="num">0</p>
@@ -21,8 +21,8 @@
             </div>
             <div class="btns">
               <button id="start-btn" onclick="startBtn()">スタート</button>
-              <button id="stop-btn" onclick="stopBtn()">ストップ</button>
-              <button id="reset-btn" onclick="resetBtn()">リセット</button>
+              <button id="stop-btn" onclick="stopBtn()" disabled>ストップ</button>
+              <button id="reset-btn" onclick="resetBtn()" disabled>リセット</button>
             </div>
           </div>
         </div>
